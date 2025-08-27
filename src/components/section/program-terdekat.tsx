@@ -103,7 +103,7 @@ export default function ProgramTerdekat() {
                       🎯 Daftar Sekarang
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                  <Button asChild variant="outline" size="lg" className="border-white/30 text-blue-950 hover:bg-white/10">
                     <Link href="/program-kerja">
                       Lihat Semua Program
                       <ArrowRight className="ml-2 w-5 h-5" />

@@ -131,7 +131,7 @@ export default function KontakSection() {
                   </Link>
                 </Button>
                 
-                <Button asChild variant="outline" size="lg" className="w-full border-white/30 text-white hover:bg-white/10">
+                <Button asChild variant="outline" size="lg" className="w-full border-white/30 text-blue-950 hover:bg-white/10">
                   <Link href="/kontak">
                     Informasi Lengkap
                   </Link>
