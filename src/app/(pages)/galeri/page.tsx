@@ -1,4 +1,4 @@
-import { Camera, Play, Image as ImageIcon, Calendar, Users } from "lucide-react";
+import { Camera, Play, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function GaleriPage() {
