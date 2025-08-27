@@ -6,19 +6,20 @@ import { Button } from "@/components/ui/button";
 import { SAMPLE_PROGRAMS } from "@/lib/data/constants";
 
 interface ProgramPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function ProgramPage({ params }: ProgramPageProps) {
-  const program = SAMPLE_PROGRAMS.find(p => p.id === params.id);
+export default async function ProgramPage({ params }: ProgramPageProps) {
+  const { id } = await params;
+  const program = SAMPLE_PROGRAMS.find(p => p.id === id);
 
   if (!program) {
     notFound();
   }
 
-  const relatedPrograms = SAMPLE_PROGRAMS.filter(p => p.id !== params.id).slice(0, 3);
+  const relatedPrograms = SAMPLE_PROGRAMS.filter(p => p.id !== id).slice(0, 3);
   const isUpcoming = program.status === 'upcoming';
 
   return (

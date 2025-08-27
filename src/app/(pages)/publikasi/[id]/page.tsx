@@ -5,19 +5,20 @@ import { Button } from "@/components/ui/button";
 import { SAMPLE_ARTICLES } from "@/lib/data/constants";
 
 interface ArticlePageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = SAMPLE_ARTICLES.find(a => a.id === params.id);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { id } = await params;
+  const article = SAMPLE_ARTICLES.find(a => a.id === id);
 
   if (!article) {
     notFound();
   }
 
-  const relatedArticles = SAMPLE_ARTICLES.filter(a => a.id !== params.id).slice(0, 3);
+  const relatedArticles = SAMPLE_ARTICLES.filter(a => a.id !== id).slice(0, 3);
 
   return (
     <div className="min-h-screen bg-gray-50">
