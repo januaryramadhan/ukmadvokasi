@@ -190,12 +190,12 @@ export default function PendaftaranPage() {
                 </Link>
                 
                 <Link 
-                  href="/galeri"
+                  href="/dokumentasi"
                   className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow group"
                 >
                   <MapPin className="w-8 h-8 mx-auto mb-2 text-red-600 group-hover:scale-110 transition-transform" />
-                  <h4 className="font-medium text-sm text-gray-900">Lihat Galeri</h4>
-                  <p className="text-xs text-gray-600 mt-1">Dokumentasi kegiatan</p>
+                  <h4 className="font-medium text-sm text-gray-900">Dokumentasi & Galeri</h4>
+                  <p className="text-xs text-gray-600 mt-1">Dokumentasi & galeri kegiatan</p>
                 </Link>
                 
                 <Link 

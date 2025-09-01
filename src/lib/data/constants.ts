@@ -41,12 +41,12 @@ export const NAVIGATION_ITEMS = [
     href: "/program-kerja",
   },
   {
-    label: "Galeri",
-    href: "/galeri",
-  },
-  {
     label: "Dokumentasi",
     href: "/dokumentasi",
+  },
+  {
+    label: "Publikasi",
+    href: "/publikasi",
   },
   {
     label: "Pendaftaran",
@@ -139,42 +139,6 @@ export const ORGANIZATIONAL_STRUCTURE = [
     position: "Kepala Divisi PSDM",
     department: "Ilmu Komunikasi",
     level: "division",
-  },
-] as const;
-
-export const SAMPLE_ARTICLES = [
-  {
-    id: "1",
-    title: "Memahami Dasar-Dasar Hukum Konstitusi Indonesia",
-    excerpt: "Artikel ini membahas tentang pentingnya memahami konstitusi sebagai landasan hukum tertinggi di Indonesia...",
-    content: "Konten lengkap artikel...",
-    author: "Tim Redaksi UKM Advokasi",
-    publishDate: "2025-01-15",
-    category: "Hukum Konstitusi",
-    image: "/images/articles/article-1.jpg",
-    tags: ["hukum", "konstitusi", "indonesia"],
-  },
-  {
-    id: "2",
-    title: "Peran Advokasi dalam Penegakan Hukum",
-    excerpt: "Menjelaskan bagaimana advokasi berperan penting dalam sistem peradilan dan penegakan hukum...",
-    content: "Konten lengkap artikel...",
-    author: "Tim Redaksi UKM Advokasi",
-    publishDate: "2025-01-10",
-    category: "Advokasi",
-    image: "/images/articles/article-2.jpg",
-    tags: ["advokasi", "hukum", "peradilan"],
-  },
-  {
-    id: "3",
-    title: "Etika Profesi dalam Dunia Hukum",
-    excerpt: "Pembahasan mengenai pentingnya etika dalam menjalankan profesi di bidang hukum...",
-    content: "Konten lengkap artikel...",
-    author: "Tim Redaksi UKM Advokasi",
-    publishDate: "2025-01-05",
-    category: "Etika Hukum",
-    image: "/images/articles/article-3.jpg",
-    tags: ["etika", "profesi", "hukum"],
   },
 ] as const;
 

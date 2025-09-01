@@ -14,7 +14,7 @@ Website resmi **Unit Kegiatan Mahasiswa Advokasi** Kabinet Kresna 2024/2025 yang
 - **Profil Organisasi** - Sejarah, visi-misi, AD/ART, dan struktur kepengurusan
 - **Program Kerja** - Showcase program-program UKM dengan design banner-style
 - **Publikasi** - Artikel dan karya tulis anggota UKM
-- **Galeri** - Dokumentasi kegiatan dan momen penting
+- **Dokumentasi** - Galeri dan dokumentasi kegiatan
 - **Kontak** - Informasi kontak dan formulir pendaftaran
 
 ### 🎨 Desain & UX
@@ -74,7 +74,7 @@ ukmadvokasi/
 ├── src/
 │   ├── app/
 │   │   ├── (pages)/           # Grouped routes
-│   │   │   ├── galeri/
+│   │   │   ├── dokumentasi/
 │   │   │   ├── kontak/
 │   │   │   ├── pendaftaran/
 │   │   │   ├── profil/
@@ -115,7 +115,7 @@ ukmadvokasi/
 - `/profil/struktur` - Struktur organisasi lengkap
 - `/program-kerja` - Daftar program kerja
 - `/publikasi` - Artikel dan publikasi
-- `/galeri` - Galeri foto kegiatan
+- `/dokumentasi` - Dokumentasi dan galeri kegiatan
 - `/kontak` - Kontak dan pendaftaran
 
 ## 🛠️ Development
