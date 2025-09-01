@@ -22,22 +22,22 @@ export default function Header() {
       <div className="container mx-auto px-4">
         {/* Top Bar */}
         <div className="flex items-center justify-between py-4">
-          {/* Logo & Brand */}
+          {/* Logo & Brand - Always visible on sm+ */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-red-800 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-800 rounded-full flex items-center justify-center">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
                 width={48}
                 height={48}
-                className="object-cover"
+                className="object-cover w-6 h-6 sm:w-8 sm:h-8"
               />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-bold text-xl text-gray-900">
+            <div className="block">
+              <h1 className="font-bold text-lg sm:text-xl text-gray-900">
                 {ORGANIZATION_INFO.shortName}
               </h1>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs sm:text-sm text-gray-600">
                 {ORGANIZATION_INFO.kabinet}
               </p>
             </div>
@@ -79,20 +79,23 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button asChild className="bg-red-800 hover:bg-red-900">
-              <Link href="/pendaftaran">Daftar Sekarang</Link>
-            </Button>
-          </div>
+          {/* Right Side Content */}
+          <div className="flex items-center space-x-3">
+            {/* CTA Button - visible on sm+ */}
+            <div className="hidden sm:block">
+              <Button asChild className="bg-red-800 hover:bg-red-900 text-sm px-4 py-2">
+                <Link href="/pendaftaran">Daftar Sekarang</Link>
+              </Button>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-red-800 hover:bg-gray-100 transition-colors"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="lg:hidden p-2 rounded-md text-gray-700 hover:text-red-800 hover:bg-gray-100 transition-colors"
+            >
+              {isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -140,7 +143,9 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 border-t border-gray-200 mt-4">
+              
+              {/* Mobile CTA Button - only show on mobile screens */}
+              <div className="pt-4 border-t border-gray-200 mt-4 sm:hidden">
                 <Button asChild className="w-full bg-red-800 hover:bg-red-900">
                   <Link href="/pendaftaran" onClick={() => setIsMenuOpen(false)}>
                     Daftar Sekarang

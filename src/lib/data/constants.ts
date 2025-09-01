@@ -41,12 +41,12 @@ export const NAVIGATION_ITEMS = [
     href: "/program-kerja",
   },
   {
-    label: "Publikasi",
-    href: "/publikasi",
-  },
-  {
     label: "Galeri",
     href: "/galeri",
+  },
+  {
+    label: "Dokumentasi",
+    href: "/dokumentasi",
   },
   {
     label: "Pendaftaran",

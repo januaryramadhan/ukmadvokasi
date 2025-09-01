@@ -1,68 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { User, Mail, Phone, MapPin, FileText, Send, CheckCircle } from "lucide-react";
+import { User, Mail, Phone, MapPin, FileText, Clock, MessageCircle, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ORGANIZATION_INFO } from "@/lib/data/constants";
+import { ORGANIZATION_INFO, CONTACT_INFO } from "@/lib/data/constants";
 
 export default function PendaftaranPage() {
-  const [formData, setFormData] = useState({
-    namaLengkap: "",
-    nim: "",
-    email: "",
-    telepon: "",
-    alamat: "",
-    programStudi: "",
-    semester: "",
-    motivasi: "",
-    pengalaman: "",
-    komitmen: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-20">
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-8 h-8 text-green-600" />
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Pendaftaran Berhasil!
-          </h1>
-          <p className="text-gray-600 mb-6">
-            Terima kasih telah mendaftar. Tim kami akan segera menghubungi Anda untuk tahap selanjutnya.
-          </p>
-          <Button asChild className="bg-red-800 hover:bg-red-900">
-            <Link href="/">Kembali ke Beranda</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -98,297 +41,171 @@ export default function PendaftaranPage() {
         </div>
       </section>
 
-      {/* Registration Form */}
+      {/* Registration Closed Notice */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-              {/* Form Header */}
-              <div className="bg-gray-50 px-8 py-6 border-b border-gray-200">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Formulir Pendaftaran
+            {/* Main Notice */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden mb-8">
+              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 px-8 py-8 text-center border-b border-gray-200">
+                <div className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Clock className="w-10 h-10 text-yellow-600" />
+                </div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Pendaftaran Sedang Ditutup
                 </h2>
-                <p className="text-gray-600">
-                  Lengkapi data diri Anda dengan benar dan lengkap
+                <p className="text-lg text-gray-600 mb-6">
+                  Maaf, periode pendaftaran anggota baru UKM Advokasi saat ini sedang ditutup.
                 </p>
+                <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 max-w-md mx-auto">
+                  <p className="text-sm text-gray-700">
+                    <strong>Informasi pendaftaran selanjutnya</strong> akan diumumkan melalui media sosial resmi kami
+                  </p>
+                </div>
               </div>
 
-              {/* Form Content */}
-              <form onSubmit={handleSubmit} className="p-8 space-y-6">
-                {/* Data Pribadi */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <User className="w-5 h-5 mr-2 text-red-800" />
-                    Data Pribadi
-                  </h3>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="namaLengkap" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nama Lengkap *
-                      </label>
-                      <input
-                        type="text"
-                        id="namaLengkap"
-                        name="namaLengkap"
-                        value={formData.namaLengkap}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="Masukkan nama lengkap"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="nim" className="block text-sm font-medium text-gray-700 mb-2">
-                        NIM *
-                      </label>
-                      <input
-                        type="text"
-                        id="nim"
-                        name="nim"
-                        value={formData.nim}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="Masukkan NIM"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Kontak */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <Mail className="w-5 h-5 mr-2 text-red-800" />
-                    Informasi Kontak
-                  </h3>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="contoh@email.com"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="telepon" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nomor Telepon *
-                      </label>
-                      <input
-                        type="tel"
-                        id="telepon"
-                        name="telepon"
-                        value={formData.telepon}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="08xxxxxxxxxx"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="mt-6">
-                    <label htmlFor="alamat" className="block text-sm font-medium text-gray-700 mb-2">
-                      Alamat Lengkap *
-                    </label>
-                    <textarea
-                      id="alamat"
-                      name="alamat"
-                      value={formData.alamat}
-                      onChange={handleInputChange}
-                      required
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                      placeholder="Masukkan alamat lengkap"
-                    />
-                  </div>
-                </div>
-
-                {/* Data Akademik */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                    <FileText className="w-5 h-5 mr-2 text-red-800" />
-                    Data Akademik
-                  </h3>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="programStudi" className="block text-sm font-medium text-gray-700 mb-2">
-                        Program Studi *
-                      </label>
-                      <select
-                        id="programStudi"
-                        name="programStudi"
-                        value={formData.programStudi}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
+              <div className="p-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
+                  Tetap Terhubung Dengan Kami
+                </h3>
+                
+                {/* Social Media & Contact */}
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="space-y-4">
+                    <h4 className="font-medium text-gray-900 flex items-center">
+                      <MessageCircle className="w-5 h-5 mr-2 text-red-600" />
+                      Media Sosial
+                    </h4>
+                    <div className="space-y-3">
+                      <a 
+                        href="https://instagram.com/ukmadvokasiut" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-3 text-gray-600 hover:text-red-600 transition-colors group"
                       >
-                        <option value="">Pilih Program Studi</option>
-                        <option value="hukum">Ilmu Hukum</option>
-                        <option value="administrasi-negara">Administrasi Negara</option>
-                        <option value="ekonomi">Ekonomi</option>
-                        <option value="manajemen">Manajemen</option>
-                        <option value="akuntansi">Akuntansi</option>
-                        <option value="lainnya">Lainnya</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="semester" className="block text-sm font-medium text-gray-700 mb-2">
-                        Semester *
-                      </label>
-                      <select
-                        id="semester"
-                        name="semester"
-                        value={formData.semester}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
+                        <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                        <span>{CONTACT_INFO.social.instagram}</span>
+                      </a>
+                      <a 
+                        href="https://twitter.com/UKMADVOKASI_" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-3 text-gray-600 hover:text-red-600 transition-colors group"
                       >
-                        <option value="">Pilih Semester</option>
-                        <option value="1">Semester 1</option>
-                        <option value="2">Semester 2</option>
-                        <option value="3">Semester 3</option>
-                        <option value="4">Semester 4</option>
-                        <option value="5">Semester 5</option>
-                        <option value="6">Semester 6</option>
-                        <option value="7">Semester 7</option>
-                        <option value="8">Semester 8</option>
-                        <option value="9+">Semester 9+</option>
-                      </select>
+                        <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                        <span>{CONTACT_INFO.social.twitter}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="font-medium text-gray-900 flex items-center">
+                      <Phone className="w-5 h-5 mr-2 text-red-600" />
+                      Kontak Langsung
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3 text-gray-600">
+                        <Mail className="w-5 h-5" />
+                        <span className="text-sm">{CONTACT_INFO.email}</span>
+                      </div>
+                      <div className="flex items-center space-x-3 text-gray-600">
+                        <Phone className="w-5 h-5" />
+                        <span className="text-sm">{CONTACT_INFO.phone}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Motivasi & Komitmen */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                    Motivasi & Komitmen
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <label htmlFor="motivasi" className="block text-sm font-medium text-gray-700 mb-2">
-                        Motivasi bergabung dengan UKM Advokasi *
-                      </label>
-                      <textarea
-                        id="motivasi"
-                        name="motivasi"
-                        value={formData.motivasi}
-                        onChange={handleInputChange}
-                        required
-                        rows={4}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="Ceritakan motivasi dan alasan Anda ingin bergabung..."
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="pengalaman" className="block text-sm font-medium text-gray-700 mb-2">
-                        Pengalaman organisasi atau kegiatan terkait hukum
-                      </label>
-                      <textarea
-                        id="pengalaman"
-                        name="pengalaman"
-                        value={formData.pengalaman}
-                        onChange={handleInputChange}
-                        rows={3}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                        placeholder="Opsional: Ceritakan pengalaman organisasi atau kegiatan terkait hukum yang pernah diikuti..."
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="komitmen" className="block text-sm font-medium text-gray-700 mb-2">
-                        Komitmen waktu yang dapat diberikan *
-                      </label>
-                      <select
-                        id="komitmen"
-                        name="komitmen"
-                        value={formData.komitmen}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-                      >
-                        <option value="">Pilih komitmen waktu</option>
-                        <option value="5-10-jam">5-10 jam per minggu</option>
-                        <option value="10-15-jam">10-15 jam per minggu</option>
-                        <option value="15-20-jam">15-20 jam per minggu</option>
-                        <option value="20-jam-plus">Lebih dari 20 jam per minggu</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Terms & Conditions */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-3">Syarat dan Ketentuan:</h4>
-                  <ul className="text-sm text-gray-600 space-y-2 mb-4">
-                    <li>• Bersedia mengikuti seluruh rangkaian proses seleksi</li>
-                    <li>• Berkomitmen aktif dalam kegiatan organisasi</li>
-                    <li>• Menjunjung tinggi nilai-nilai dan kode etik UKM Advokasi</li>
-                    <li>• Bersedia mengikuti program pengembangan anggota</li>
-                  </ul>
-                  
-                  <label className="flex items-start space-x-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      required
-                      className="mt-1 w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
-                    />
-                    <span className="text-sm text-gray-700">
-                      Saya menyetujui syarat dan ketentuan yang berlaku dan bersedia menjalani proses seleksi anggota UKM Advokasi
-                    </span>
-                  </label>
-                </div>
-
-                {/* Submit Button */}
-                <div className="pt-6">
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-red-800 hover:bg-red-900 disabled:opacity-50 disabled:cursor-not-allowed py-4 text-lg"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Mengirim Pendaftaran...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Kirim Pendaftaran
-                      </>
-                    )}
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button asChild className="bg-red-800 hover:bg-red-900">
+                    <Link href="/kontak">
+                      <MessageCircle className="w-5 h-5 mr-2" />
+                      Hubungi Kami
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="border-red-800 text-red-800 hover:bg-red-50">
+                    <Link href="/program-kerja">
+                      <FileText className="w-5 h-5 mr-2" />
+                      Lihat Program Kami
+                    </Link>
                   </Button>
                 </div>
-              </form>
+              </div>
             </div>
-            
-            {/* Contact Info */}
-            <div className="mt-8 bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Butuh Bantuan?</h3>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex items-center space-x-2">
-                  <Mail className="w-4 h-4 text-red-600" />
-                  <span className="text-sm text-gray-600">advokasiutbogor@gmail.com</span>
+
+            {/* FAQ Section */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                Pertanyaan yang Sering Diajukan
+              </h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">
+                    Kapan pendaftaran akan dibuka kembali?
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Informasi pembukaan pendaftaran akan diumumkan melalui media sosial resmi kami. 
+                    Pastikan untuk mengikuti akun Instagram dan Twitter UKM Advokasi.
+                  </p>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4 text-red-600" />
-                  <span className="text-sm text-gray-600">083804720979</span>
+                
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">
+                    Apakah ada syarat khusus untuk mendaftar?
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Pendaftaran terbuka untuk semua mahasiswa {ORGANIZATION_INFO.university} 
+                    dari berbagai program studi yang memiliki minat terhadap bidang hukum dan advokasi.
+                  </p>
                 </div>
+                
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">
+                    Bagaimana cara mendapatkan informasi terbaru?
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Ikuti media sosial kami atau hubungi kontak yang tersedia untuk mendapatkan 
+                    informasi terbaru tentang kegiatan dan pendaftaran UKM Advokasi.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Alternative Actions */}
+            <div className="mt-8 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
+              <h3 className="font-semibold text-gray-900 mb-4 text-center">
+                Sementara menunggu pendaftaran dibuka...
+              </h3>
+              
+              <div className="grid sm:grid-cols-3 gap-4">
+                <Link 
+                  href="/publikasi"
+                  className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow group"
+                >
+                  <FileText className="w-8 h-8 mx-auto mb-2 text-red-600 group-hover:scale-110 transition-transform" />
+                  <h4 className="font-medium text-sm text-gray-900">Baca Publikasi</h4>
+                  <p className="text-xs text-gray-600 mt-1">Artikel & kajian hukum</p>
+                </Link>
+                
+                <Link 
+                  href="/galeri"
+                  className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow group"
+                >
+                  <MapPin className="w-8 h-8 mx-auto mb-2 text-red-600 group-hover:scale-110 transition-transform" />
+                  <h4 className="font-medium text-sm text-gray-900">Lihat Galeri</h4>
+                  <p className="text-xs text-gray-600 mt-1">Dokumentasi kegiatan</p>
+                </Link>
+                
+                <Link 
+                  href="/profil"
+                  className="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow group"
+                >
+                  <User className="w-8 h-8 mx-auto mb-2 text-red-600 group-hover:scale-110 transition-transform" />
+                  <h4 className="font-medium text-sm text-gray-900">Profil UKM</h4>
+                  <p className="text-xs text-gray-600 mt-1">Sejarah & visi misi</p>
+                </Link>
               </div>
             </div>
           </div>

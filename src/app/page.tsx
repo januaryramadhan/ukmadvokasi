@@ -2,7 +2,6 @@ import Hero from "@/components/section/hero";
 import VisiMisi from "@/components/section/visi-misi";
 import ProgramTerdekat from "@/components/section/program-terdekat";
 import PengurusSection from "@/components/section/pengurus-section";
-import LatestPublications from "@/components/section/latest-publications";
 import KontakSection from "@/components/section/kontak-section";
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
       <VisiMisi />
       <ProgramTerdekat />
       <PengurusSection />
-      <LatestPublications />
       <KontakSection />
     </>
   );

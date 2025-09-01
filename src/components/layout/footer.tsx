@@ -128,7 +128,15 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} {ORGANIZATION_INFO.name}. All rights reserved.
+              © {currentYear} {ORGANIZATION_INFO.name}. All rights reserved. Made with ❤️ by{" "}
+              <a 
+                href="https://januaryramadhan.works" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-red-400 hover:text-red-300 transition-colors font-medium"
+              >
+                January
+              </a>
             </p>
             <p className="text-gray-400 text-sm text-center md:text-right">
               {ORGANIZATION_INFO.university}

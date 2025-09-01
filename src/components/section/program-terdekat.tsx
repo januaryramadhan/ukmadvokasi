@@ -43,7 +43,7 @@ export default function ProgramTerdekat() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
                     <span className="bg-yellow-400 text-yellow-900 text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 rounded-full font-bold shadow-lg">
-                      🔥 Segera Hadir
+                      Segera Hadir
                     </span>
                   </div>
                   <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">
@@ -100,7 +100,7 @@ export default function ProgramTerdekat() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Button asChild size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold shadow-lg">
                     <Link href="/pendaftaran">
-                      🎯 Daftar Sekarang
+                      Daftar Sekarang
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="border-white/30 text-blue-950 hover:bg-white/10">

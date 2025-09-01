@@ -19,6 +19,20 @@ export const metadata: Metadata = {
     description: "Wadah Bagi Mahasiswa Mempelajari Hukum dan Advokasi",
     type: "website",
     locale: "id_ID",
+    images: [
+      {
+        url: "/og_image.png",
+        width: 1200,
+        height: 630,
+        alt: "UKM Advokasi - Universitas Terbuka Bogor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UKM Advokasi - Universitas Terbuka Bogor",
+    description: "Wadah Bagi Mahasiswa Mempelajari Hukum dan Advokasi",
+    images: ["/og_image.png"],
   },
 };
 
