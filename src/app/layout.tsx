@@ -14,17 +14,21 @@ export const metadata: Metadata = {
   description: "Unit Kegiatan Mahasiswa Advokasi - Wadah Bagi Mahasiswa Mempelajari Hukum dan Advokasi. Kabinet Prometheus Aletheia.",
   keywords: "UKM Advokasi, Universitas Terbuka Bogor, Hukum, Advokasi, Mahasiswa, Prometheus Aletheia",
   authors: [{ name: "UKM Advokasi UT Bogor" }],
+  metadataBase: new URL('https://ukmadvokasi.site'),
   openGraph: {
     title: "UKM Advokasi - Universitas Terbuka Bogor",
     description: "Wadah Bagi Mahasiswa Mempelajari Hukum dan Advokasi",
     type: "website",
     locale: "id_ID",
+    url: "https://ukmadvokasi.site",
+    siteName: "UKM Advokasi",
     images: [
       {
-        url: "/og_image.png",
+        url: "https://i.postimg.cc/43mmYrPC/og-image.png",
         width: 1200,
         height: 630,
         alt: "UKM Advokasi - Universitas Terbuka Bogor",
+        type: "image/png",
       },
     ],
   },
@@ -32,7 +36,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "UKM Advokasi - Universitas Terbuka Bogor",
     description: "Wadah Bagi Mahasiswa Mempelajari Hukum dan Advokasi",
-    images: ["/og_image.png"],
+    images: ["https://i.postimg.cc/43mmYrPC/og-image.png"],
+    creator: "@UKMADVOKASI_",
   },
 };
 
